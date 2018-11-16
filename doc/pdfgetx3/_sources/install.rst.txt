@@ -1,0 +1,135 @@
+Installation
+========================================================================
+
+
+Software requirements
+------------------------------------------------------------------------
+
+PDFgetX3 has been written in Python programming language, therefore
+to use the software, you must have Python 3.6, 3.5, 3.4, 2.7 or 2.6
+installed.  In addition, the following third-party Python libraries
+are also required:
+
+* setuptools - tools for installing Python packages
+* six - Python 2 and 3 compatibility library
+* NumPy - library for scientific computing with Python
+* matplotlib - Python plotting library
+* IPython - enhanced interactive Python shell
+
+Standard Python releases can be obtained from
+https://www.python.org/downloads.
+The third-party libraries can be found at the
+`Python Package Index <https://pypi.python.org/pypi>`_
+or using any Internet search engine.
+
+Another more convenient option is to obtain one of the science-oriented
+Python distributions such as
+`Anaconda Python <https://www.anaconda.com/download>`_,
+`Enthought Canopy <https://www.enthought.com/>`_ or
+`PythonXY <http://python-xy.github.io/>`_,
+These distributions already include all the necessary libraries, so the
+required Python software can be all installed in one step.
+
+On Linux operating systems the third-party libraries are usually
+included in a system software package repository.  For example on an
+Ubuntu Linux computer the software dependencies can be all installed
+with a single shell command ::
+
+  sudo apt-get install \
+    python3-six python3-setuptools python3-numpy python3-matplotlib ipython3
+
+This may be, of course, just as well accomplished using the GUI
+driven Synaptic package manager.  Other Linux
+distributions may use different software management tools,
+but the names of the necessary packages should be very similar
+to those above.
+
+On Windows operating system, it may be necessary to add the
+``C:\Python35`` directory and the scripts directory
+``C:\Python35\Scripts`` to the system :envvar:`!PATH`.
+Some Python distributions may already do that as a part of their
+installation process.  The easiest way to check is to start the
+:program:`Command Prompt`, type there ``python`` and see if this
+starts the Python interpreter.
+
+
+PDFgetX3 installation
+------------------------------------------------------------------------
+
+PDFgetX3 is distributed as a Python egg package, which can be obtained
+from the `Columbia Technology Ventures
+<http://innovation.columbia.edu/technologies/m11-120>`__.
+Once all the required software is in
+place, start the command prompt on Windows or a Unix terminal on Linux
+or Mac, navigate to the directory that contains the egg file and
+execute the following command::
+
+  python -m easy_install ./diffpy.pdfgetx-VERSION.egg
+
+Here VERSION needs to be replaced to match the actual filename.
+It is critical to use one of the supported Python versions otherwise
+the program would not work.  On Linux and Mac operating systems the
+installation may need to run with root user privileges, for example,
+by prepending ``sudo`` to the command line above.
+If root access is not available, use the
+easy_install options :option:`!--user`, :option:`!--prefix` or
+:option:`!--install-dir` to install PDFgetX3 to a user-writable
+directory.
+
+To verify if pdfgetx3 has been correctly installed,
+type the following command::
+
+  pdfgetx3 --version
+
+This should display the software version, which should be
+the same as the VERSION string in the egg file name.
+The installation also includes a :command:`plotdata`
+command for an easy plotting of text data files.  To verify
+if plotdata works, run the ``plotdata --version`` command.
+
+
+.. index:: %pdfgetx3 IPython magic
+.. _my-pdfgetx3-magic:
+
+IPython magic command
+------------------------------------------------------------------------
+
+These instructions are intended for IPython users who would like to
+integrate PDFgetX3 into their IPython environment.  If you don't plan
+to use IPython in such way, you can safely skip this section.
+
+When pdfgetx3 is run in an interactive mode, it starts IPython
+interactive shell and defines an extra ``%pdfgetx3``
+magic command within the IPython session.  The IPython magic
+commands are not valid Python code, but work in a similar
+fashion as standard shell commands.  The ``%pdfgetx3`` magic can
+be thus used with the same options and arguments as if run from
+the shell.  This is useful for processing more files, while
+preserving all plots or variables that were already created
+within the IPython session.
+
+The ``%pdfgetx3`` magic command can be defined permanently so it is
+available in all IPython sessions.  To make the ``%pdfgetx3``
+command permanent
+
+#.  find the ``profile_default/ipython_config.py`` file and open it
+    in a text editor.  If that file does not exists,
+    create it first by executing ::
+
+      ipython profile create
+
+#.  navigate to the paragraph that contains the
+    :py:data:`!c.InteractiveShellApp.extensions` and add there
+    the following line::
+
+      c.InteractiveShellApp.extensions = ['diffpy.pdfgetx.ipy_pdfgetx3']
+
+    There must be no leading indent, i.e., the text must start at the
+    very first column.
+
+.. note::
+
+   This setup works for the latest IPython 5.0 and for the older
+   versions going back to 0.13.  For IPython 0.11 or 0.12 use
+   ``ipy012_pdfgetx3`` in the extension module name
+   instead of ``ipy_pdfgetx3``.
