@@ -12,17 +12,18 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="../_static/diffpy_logo_header.ico"/>
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="pdfmorph_license.html" />
     <link rel="prev" title="&lt;no title&gt;" href="xinterpdflicense.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
 
   </head><body>
 
@@ -66,6 +67,7 @@
       <li><a href="SrMise.html">SrMise</a></li>
       <li><a href="mPDF.html">mPDF</a></li>
       <li><a href="xinterpdf.html">xINTERPDF</a></li>
+      <li><a href="#">PDFmorph</a></li>
       <li><a href="pythonpackages.html">Python Packages</a></li>
   </ul>
 </li>
@@ -89,7 +91,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 content">
+    <div class="body col-md-12 content" role="main">
       
   <div class="section" id="pdfmorph">
 <h1>PDFmorph<a class="headerlink" href="#pdfmorph" title="Permalink to this headline">¶</a></h1>
@@ -97,101 +99,104 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The PDFmorph application has a Command Line Interface. If you are
-unfamiliar with the terminal or windows command prompt, it is recommended
-that you consult online resources and become somewhat familiar before
-using PDFmorph.</p>
+<p>PDFmorph is currently run from the command line, which requires
+opening and typing into a terminal window or Windows command
+prompt. It is recommended that you consult online resources and
+become somewhat familiar before using PDFmorph.</p>
 </div>
-<p>PDFmorph is a Python software package designed to increase the insight researchers
-can obtain from measured atomic pair distribution functions (PDFs) in a model
-independent way. The program was designed to help a researcher answer the question:
-“has my material undergone a phase transition between these two measurements?”</p>
-<p>PDFmorph makes use of several data manipulation techniques to correct for benign
-effects such as thermal expansion and increased thermal motion before computing and
-plotting a difference curve between two PDFs. One PDF is identified as the “target”
-PDF and the second is “morphed” by “stretching”, “smearing”, and “scaling”. PDFmorph
-will vary amplitude of morphing transformations to obtain the best fit between
-morphed and target PDFs, then plot them along with the difference curve plotted
-below.</p>
+<p>PDFmorph is a Python software package designed to increase the insight
+researchers can obtain from measured atomic pair distribution functions
+(PDFs) in a model-independent way. The program was designed to help a
+researcher answer the question: “Has my material undergone a phase
+transition between these two measurements?”</p>
+<p>PDFmorph makes use of several data manipulation techniques to correct
+for benign effects such as thermal expansion (peak shift) and increased
+thermal motion (peak broadening) or a change in scale due to differences
+in incident flux, for example. PDFmorph will do its best to correct
+for these benign effects before computing and plotting a difference
+curve.</p>
+<p>One PDF (typically that collected at higher temperature) is identified
+as the “target” PDF and the second is “morphed” by “stretching” (changing
+the r-axis to simulate a uniform lattice expansion), “smearing”
+(broadening peaks through a uniform convolution to simulate increased
+thermal motion), and “scaling” (self-explanatory). PDFmorph will vary
+amplitude of morphing transformations to obtain the best fit between
+morphed and target PDFs, then plot them along with the difference curve
+plotted below.</p>
 <p>There are also a few other morphing transformations in the program.</p>
-<p>Finally, we note that PDFmorph should work on other spectra that are not PDFs,
-though it has not been extensively tested beyond the PDF.</p>
+<p>Finally, we note that PDFmorph should work on other spectra that are
+not PDFs, though it has not been extensively tested beyond the PDF.</p>
 <div class="figure align-center" id="id1">
 <img alt="../_images/pdfmorph_nacl_ex.png" src="../_images/pdfmorph_nacl_ex.png" />
-<p class="caption"><span class="caption-text">Transformation techniques (scale, smear, and stretch, respectively)
-utilized by PDFmorph applied sequentially on an NaCl sample</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">PDFmorph transformation techniques (scale, smear, and stretch)
+applied sequentially to a PDF from NaCl sample</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>By downloading and using this software, you are agreeing to the conditions
-specified in the <a class="reference internal" href="pdfmorphLICENSE.html"><span class="doc">software license</span></a>.</p>
-<p>PDFmorph is distributed as a software package for <a class="reference external" href="https://www.continuum.io">Anaconda Python</a>.
-PDFmorph is available for all operating systems supported by Anaconda, namely for
-32 and 64-bit Linux, Mac OS X, and 32 and 64-bit Windows.</p>
-<p>As a prerequisite for PDFmorph installation, download and install Anaconda
-from <a class="reference external" href="https://www.anaconda.com/download">https://www.anaconda.com/download</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>PDFmorph is a software which operates on any version of Python 3. Anaconda
-should install the latest version of Python by default, but in case you
-already use Anaconda for a prior release of Python, create a separate
-Anaconda environment <em>py3x</em> which will provide your preferred version of
-Python 3 (substitute x for your preferred release) instead of Python 2.7
-or earlier.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">py3x</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.</span><span class="n">x</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">py3x</span>
+specified in the software <a class="reference internal" href="pdfmorph_license.html"><span class="doc">LICENSE</span></a>.</p>
+<p>PDFmorph will run on Python 3.5 or higher or on Python 2.7.
+We recommend to use Anaconda Python which can be obtained from
+<a class="reference external" href="https://www.anaconda.com/download">https://www.anaconda.com/download</a>.
+PDFmorph is available from the <code class="docutils literal notranslate"><span class="pre">diffpy</span></code> channel of Anaconda
+packages and also from <a class="reference external" href="https://conda-forge.org">conda-forge</a>.
+To install open a <em>Terminal</em> window (<em>Anaconda Command Prompt</em>
+on Windows) and use the <strong class="program">conda</strong> command as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">--</span><span class="n">channel</span><span class="o">=</span><span class="n">diffpy</span> <span class="n">diffpy</span><span class="o">.</span><span class="n">pdfmorph</span>
 </pre></div>
 </div>
-<p>On Windows use just <code class="docutils literal notranslate"><span class="pre">activate</span> <span class="pre">py3x</span></code>. Make sure that <em>py3x</em> environment is
-activated in your shell prior to running the “install” or “update” commands
-below.</p>
-</div>
-<p>PDFmorph is available from the “conda-forge” channel of Anaconda packages. Open a
-<em>Terminal</em> window or <em>Anaconda Command Prompt</em> on Windows and install PDFmorph
-using the <strong class="program">conda</strong> command</p>
+<p>If you prefer to use <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> make sure it is configured as
+the priority channel for Anaconda packages, which will allow you
+to install without the <code class="docutils literal notranslate"><span class="pre">--channel</span></code> option</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="n">diffpy</span><span class="o">.</span><span class="n">pdfmorph</span>
 </pre></div>
 </div>
-<p>And it should be installed! To make sure that installation has completed correctly,
-run the following command from your relevant conda environment</p>
+<p>For all other Python distributions use the standard
+<strong class="program">pip</strong> installation program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">diffpy</span><span class="o">.</span><span class="n">pdfmorph</span>
+</pre></div>
+</div>
+<p>To make sure that the installation has completed correctly,
+run the following command from a <em>Terminal</em></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pdfmorph</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
-<p>If installed correctly, this command should return PDFmorph’s current version number.</p>
+<p>If all is good this should display the version of PDFmorph installed on your
+machine.</p>
 </div>
 <div class="section" id="pdfmorph-updates">
 <h2>PDFmorph Updates<a class="headerlink" href="#pdfmorph-updates" title="Permalink to this headline">¶</a></h2>
-<p>The Anaconda package sustem makes it easy to prepare and distribute software
-packages and bugfixes. To update the lates version of PDFmorph use</p>
+<p>The Anaconda package system makes it easy to prepare and distribute
+software packages and bugfixes. To obtain the latest version of PDFmorph,
+use</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="n">diffpy</span><span class="o">.</span><span class="n">pdfmorph</span>
 </pre></div>
 </div>
-<p>With other Python distributions, the program can be updated to the latest version
-as follows</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easy_install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">diffpy</span><span class="o">.</span><span class="n">pdfmorph</span>
+<p>With other Python distributions, the program can be updated to the
+latest version with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">diffpy</span><span class="o">.</span><span class="n">pdfmorph</span>
 </pre></div>
 </div>
-<p>To use a development version, visit the project source repository at
+<p>To use a development version, visit the project source repository
 <a class="reference external" href="https://github.com/diffpy/diffpy.pdfmorph">https://github.com/diffpy/diffpy.pdfmorph</a> and consult its README file.</p>
 </div>
 <div class="section" id="documentation-help">
 <h2>Documentation/Help<a class="headerlink" href="#documentation-help" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="latest">
-<h3>0.0.1 - latest<a class="headerlink" href="#latest" title="Permalink to this headline">¶</a></h3>
+<h3>0.1.0 - latest<a class="headerlink" href="#latest" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>User manual (available in HTML and PDF) to be made available soon</p></li>
-<li><p>Installation instructions to come</p></li>
-<li><p>Tutorial files will be made available soon</p></li>
+<li><p>User manual (available in HTML and PDF)</p></li>
+<li><p>Installation instructions</p></li>
+<li><p><a class="reference external" href="https://github.com/diffpy/diffpy.pdfmorph/tree/master/tests/testdata">Sample PDF files</a></p></li>
+<li><p>Tutorial</p></li>
 <li><p>Please, join the <a class="reference internal" href="../community.html"><span class="doc">community forum</span></a> for tips,
 tricks, and feedback.</p></li>
 </ul>
+<div class="toctree-wrapper compound">
 </div>
 </div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p>Paper on PDfmorph will be released soon.</p>
 </div>
 </div>
 
